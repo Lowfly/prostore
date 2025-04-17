@@ -1,8 +1,8 @@
+import { Product } from "@/types";
 import ProductCard from "./product-card";
 
 interface ProductListProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any;
+  data: Product[];
   title?: string;
   limit?: number;
 }
@@ -16,7 +16,7 @@ const ProductList = (props: ProductListProps) => {
       <h2 className="h2-bold mb-4">{props.title}</h2>
       {props.data.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {limitedData.map((product: { [key: string]: string & number }) => (
+          {limitedData.map((product: Product) => (
             <ProductCard key={product.name} product={product}></ProductCard>
           ))}
         </div>
